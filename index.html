@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/7d6ed240dd.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="">
+
+    <div class="title text-center mt-5">
+        <span class="position-relative">Bookmarker</span>
+    </div>
+
+    <div class="section container d-flex flex-column p-3 my-5">
+        <h2 class="mx-auto">
+            <i class="fa-solid fa-bookmark"></i>
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark"></i>
+        </h2>
+
+        <div class="inputs mt-2 mb-2 ">
+            <div class="name">
+                <label class="form-label mt-1 w-100 labels" for="BookmarkName">
+                    <i class="fa-solid fa-book-bookmark me-2"></i>Site Name</label>
+                <input class="form-control mb-3 mt-2 " type="text" placeholder="Bookmark Name" id="BookmarkName">
+            </div>
+
+            <div class="url ">
+                <label class="form-label mt-3 labels" for="URL">
+                    <i class="fa-solid fa-link me-2"></i>Site URL</label>
+                <input class="form-control mb-3 mt-2 " type="url" placeholder="Website URL" id="URL">
+
+            </div>
+            <div class="text-center">
+                <button onclick="addBookmark()" class="btn mx-auto py-2 px-5">Submit</button>
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="list container bg-white">
+        <div class="row text-center py-3">
+            <div class="col-3">
+                <span>Index</span>
+            </div>
+            <div class="col-3">
+                <span>Website Name</span>
+            </div>
+            <div class="col-3">
+                <span>Visit</span>
+            </div>
+            <div class="col-3">
+                <span>Delete</span>
+            </div>
+        </div>
+
+        <div id="list"></div>
+        
+    </div>
+
+
+  <!-- Modal -->
+  <div class="modal name_popup" id="name_popup">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header d-flex justify-content-between  border-bottom-0 ">
+          <h1 class="fs-5 fw-bold text-danger"><i class="fa-solid fa-circle-exclamation me-2"></i>Oops !!!</h1>
+          <button type="button" onclick="closeNameModal()" class="btn fs-3 text-danger "><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="modal-body pt-0">
+           <p class="fs-5"> Site Name is not valid, Please follow the rules below :</p>
+           <div class="rule fs-5 mb-2">
+            <i class="fa-solid fa-arrow-right text-success"></i>
+            <span>Site name must be at least 3 word characters</span>
+           </div>
+           <div class="rule fs-5 mb-2">
+            <i class="fa-solid fa-arrow-right text-success"></i>
+            <span>No spaces at start or end</span>
+           </div>
+           <div class="rule fs-5 mb-2">
+            <i class="fa-solid fa-arrow-right text-success"></i>
+            <span>Site name must not be exist before</span>
+           </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="modal url_popup" id="url_popup">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header d-flex justify-content-between  border-bottom-0 ">
+          <h1 class="fs-5 fw-bold text-danger"><i class="fa-solid fa-circle-exclamation me-2"></i>Oops !!!</h1>
+          <button type="button" onclick="closeUrlModal()" class="btn fs-3 text-danger "><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="modal-body pt-0">
+           <p class="fs-5"> Url is not valid, Please follow the rules below :</p>
+           <div class="rule fs-5 mb-2">
+            <i class="fa-solid fa-arrow-right text-success"></i>
+            <span>URL must start with https:// or http://</span>
+           </div>
+           <div class="rule fs-5 mb-2">
+            <i class="fa-solid fa-arrow-right text-success"></i>
+            <span>Include a domain name at least 2 letters </span>
+           </div>
+           <div class="rule fs-5 mb-2">
+            <i class="fa-solid fa-arrow-right text-success"></i>
+            <span class="">Include a domain extension at least 2 letters (.com). </span>
+           </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
